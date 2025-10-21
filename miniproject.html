@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Electronics E-commerce</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Link to External CSS -->
+    <link rel="stylesheet" href="miniproject.css">
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header class="top-header">
+        <div class="header-container">
+            <!-- Logo -->
+            <div class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                <span>TechStore</span>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search for products...">
+                <select id="categorySelect">
+                    <option value="all">All Categories</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="mobile">Mobile</option>
+                    <option value="accessories">Accessories</option>
+                </select>
+                <button id="searchBtn">
+                    <i class="fas fa-search"></i> Search
+                </button>
+            </div>
+
+            <!-- Header Icons & User Menu -->
+            <div class="header-icons">
+                <a href="#" id="userIcon"><i class="far fa-user"></i></a>
+                <a href="#" id="wishlistIcon">
+                    <i class="far fa-heart"></i>
+                    <span class="badge" id="wishlistCount">0</span>
+                </a>
+                <a href="#" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="badge" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <button id="menuToggle" class="menu-toggle">
+                <i class="fas fa-bars"></i> All Categories
+            </button>
+            <a href="#hot-offers">Hot Offers</a>
+            <a href="#new-arrivals">New Arrivals</a>
+            <a href="#trending">Trending</a>
+            <a href="#deals">Best Deals</a>
+            <a href="#support">Support</a>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB NAVIGATION -->
+    <div class="breadcrumb">
+        <a href="#">Home</a> › 
+        <a href="#">Electronics</a> › 
+        <a href="#">Mobile Accessories</a> › 
+        <span>All Products</span>
+    </div>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="main-content">
+        <!-- SIDEBAR WITH FILTERS -->
+        <aside class="sidebar" id="sidebar">
+            <!-- Close button for mobile -->
+            <button class="close-sidebar" id="closeSidebar">
+                <i class="fas fa-times"></i>
+            </button>
+
+            <!-- Category Filter -->
+            <div class="filter-section">
+                <h3>Category</h3>
+                <label><input type="checkbox" class="category-filter" value="mobile"> Mobile Phones</label>
+                <label><input type="checkbox" class="category-filter" value="accessories"> Accessories</label>
+                <label><input type="checkbox" class="category-filter" value="laptops"> Laptops</label>
+                <label><input type="checkbox" class="category-filter" value="cameras"> Cameras</label>
+                <label><input type="checkbox" class="category-filter" value="audio"> Audio Devices</label>
+            </div>
+
+            <!-- Brand Filter -->
+            <div class="filter-section">
+                <h3>Brands</h3>
+                <label><input type="checkbox" class="brand-filter" value="samsung"> Samsung</label>
+                <label><input type="checkbox" class="brand-filter" value="apple"> Apple</label>
+                <label><input type="checkbox" class="brand-filter" value="sony"> Sony</label>
+                <label><input type="checkbox" class="brand-filter" value="lg"> LG</label>
+                <label><input type="checkbox" class="brand-filter" value="xiaomi"> Xiaomi</label>
+            </div>
+
+            <!-- Price Range Filter -->
+            <div class="filter-section">
+                <h3>Price Range</h3>
+                <div class="price-inputs">
+                    <input type="number" id="minPrice" placeholder="Min" min="0">
+                    <input type="number" id="maxPrice" placeholder="Max" min="0">
+                </div>
+                <button class="apply-btn" id="applyPriceFilter">Apply</button>
+            </div>
+
+            <!-- Condition Filter -->
+            <div class="filter-section">
+                <h3>Condition</h3>
+                <label><input type="radio" name="condition" class="condition-filter" value="all" checked> All</label>
+                <label><input type="radio" name="condition" class="condition-filter" value="new"> Brand New</label>
+                <label><input type="radio" name="condition" class="condition-filter" value="refurbished"> Refurbished</label>
+                <label><input type="radio" name="condition" class="condition-filter" value="used"> Used</label>
+            </div>
+
+            <!-- Rating Filter -->
+            <div class="filter-section">
+                <h3>Customer Rating</h3>
+                <label>
+                    <input type="checkbox" class="rating-filter" value="5">
+                    <span class="stars">★★★★★</span> & Up
+                </label>
+                <label>
+                    <input type="checkbox" class="rating-filter" value="4">
+                    <span class="stars">★★★★</span> & Up
+                </label>
+                <label>
+                    <input type="checkbox" class="rating-filter" value="3">
+                    <span class="stars">★★★</span> & Up
+                </label>
+            </div>
+
+            <!-- Clear Filters Button -->
+            <button class="clear-filters-btn" id="clearFilters">Clear All Filters</button>
+        </aside>
+
+        <!-- PRODUCTS SECTION -->
+        <section class="products-section">
+            <!-- Products Header with Controls -->
+            <div class="products-header">
+                <div class="results-info">
+                    <h2 id="productCount">0 Products Found</h2>
+                </div>
+                <div class="view-options">
+                    <label>
+                        <input type="checkbox" id="verifiedOnly"> Verified Only
+                    </label>
+                    <label>
+                        <input type="checkbox" id="freeShipping"> Free Shipping
+                    </label>
+                    <select id="sortSelect">
+                        <option value="default">Sort By</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="popular">Most Popular</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Product Grid -->
+            <div class="product-grid" id="productGrid">
+                <!-- Products will be dynamically loaded here by JavaScript -->
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination" id="pagination">
+                <button id="prevPage" disabled><i class="fas fa-chevron-left"></i> Previous</button>
+                <div id="pageNumbers"></div>
+                <button id="nextPage">Next <i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+    </div>
+
+    <!-- NEWSLETTER SECTION -->
+    <section class="newsletter">
+        <h3>Subscribe to Our Newsletter</h3>
+        <p>Get the latest deals and offers directly to your inbox</p>
+        <form class="newsletter-form" id="newsletterForm">
+            <input type="email" id="newsletterEmail" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+        <p class="newsletter-message" id="newsletterMessage"></p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Company Info -->
+            <div class="footer-column">
+                <div class="footer-logo">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>TechStore</span>
+                </div>
+                <p>Your trusted destination for the latest electronics and gadgets at competitive prices.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-column">
+                <h4>Quick Links</h4>
+                <a href="#">About Us</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Store Locator</a>
+                <a href="#">Careers</a>
+                <a href="#">Blog</a>
+            </div>
+
+            <!-- Customer Service -->
+            <div class="footer-column">
+                <h4>Customer Service</h4>
+                <a href="#">Help Center</a>
+                <a href="#">Track Order</a>
+                <a href="#">Returns</a>
+                <a href="#">Shipping Info</a>
+                <a href="#">FAQs</a>
+            </div>
+
+            <!-- Policies -->
+            <div class="footer-column">
+                <h4>Policies</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Refund Policy</a>
+            </div>
+
+            <!-- Contact & Apps -->
+            <div class="footer-column">
+                <h4>Get in Touch</h4>
+                <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                <p><i class="fas fa-envelope"></i> support@techstore.com</p>
+                <div class="app-downloads">
+                    <h5>Download Our App</h5>
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-apple"></i> App Store
+                    </a>
+                    <a href="#" class="app-btn">
+                        <i class="fab fa-google-play"></i> Google Play
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 TechStore. All rights reserved. | Designed for Educational Purposes</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Link to External JavaScript -->
+    <script src="miniproject.js"></script>
+</body>
+</html>
